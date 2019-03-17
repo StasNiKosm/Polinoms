@@ -30,7 +30,7 @@ public class Monomial {
         this.arg = arg;
     }
 
-    public boolean isSgn() {
+    public boolean getSgn() {
         return sgn;
     }
 
@@ -39,12 +39,13 @@ public class Monomial {
     }
 
     public void print() {
-        if (sgn) {
-            System.out.println(coefficient + arg + "^" + power);
-        }
-        else {
-            System.out.println("-" + coefficient + arg + "^" + power);
+        if(sgn) System.out.print("+");
+        else System.out.print("-");
+        if(arg == ' ') {
+            System.out.print(coefficient);
+        } else {
+            if (power == 1) System.out.print((coefficient == 1 ? "" : coefficient)  + "x");
+            else System.out.print((coefficient == 1 ? "" : coefficient) + "x" + "^" + power);
         }
     }
-
 }
