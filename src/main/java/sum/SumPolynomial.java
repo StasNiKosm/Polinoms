@@ -12,13 +12,14 @@ public class SumPolynomial {
 
     public static List<Monomial> sumPolynomial (List<Monomial> monomialsA , List<Monomial> monomialsB) {
         List<Monomial> rezult = new ArrayList<>();
-        for(Monomial monomialMin : (monomialsA.size() < monomialsB.size() ? monomialsA : monomialsB)) {
-            for(Monomial monomialMax : (monomialsA.size() > monomialsB.size() ? monomialsA : monomialsB)) {
-                if (monomialMin.getPower() == monomialMax.getPower()) {
-                    rezult.add(sumMonomial(monomialMin, monomialMax));
-                } else {
-                    rezult.add(monomialMin);
-                    //rezult.add(monomialMax);
+        rezult.addAll(monomialsA);
+        rezult.addAll(monomialsB);
+        for(Monomial monomialA : monomialsA) {
+            for(Monomial monomialB : monomialsB) {
+                if (monomialA.getPower() == monomialB.getPower()) {
+                    rezult.add(sumMonomial(monomialA, monomialB));
+                    rezult.remove(monomialA);
+                    rezult.remove(monomialB);
                 }
             }
         }
