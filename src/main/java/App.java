@@ -23,9 +23,11 @@ public class App {
       //      monomial.print();
       //  }
         //System.out.println(checkCoeff(""));
+        
         for(Monomial monomial : parsingPolynomial("5x^2+x^3-5x^5-109827x^12345678-34567+45678-6+8-x^9")) {
            monomial.print();
         }
+        
         Monomial monomial = new Monomial();
         //System.out.println(parsingPolynomial("x^5+x"));
       //  System.out.println(parsingPolynomial("-23-x"));
