@@ -1,11 +1,13 @@
 package common;
 
 public class Monomial {
+    
     private int coefficient;
     private char arg;
     private int power;
     private boolean sgn;
 
+    
     public int getPower() {
         return power;
     }
