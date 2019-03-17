@@ -14,12 +14,11 @@ public class ParsingPolynomial {
 
     public static List<Monomial> parsingPolynomial(String line) {
         List<Monomial> monomialsOfPolynomial = new ArrayList<>();
-        String lineFirstMinus;
-        if(line.startsWith("-")) {
-            lineFirstMinus = line.replaceFirst("-", "{m}");
-        } else {
-            lineFirstMinus = line;
+        if (!line.startsWith("-")) {
+         line = "+" + line;   
         }
+        String lineReplacing = line.replace("-", "-{m}").replace("+", "+{p}");
+        
         String lineReplacing = lineFirstMinus.replace("+", "+{p}").replace("-", "-{m}");
         for (String monomial : lineReplacing.split("[+,-]")) {
             Monomial mono = new Monomial();
