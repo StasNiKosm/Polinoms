@@ -1,5 +1,7 @@
 package common;
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.StringType;
+
 public class Monomial {
     private int coefficient;
     private char arg;
@@ -47,5 +49,10 @@ public class Monomial {
             if (power == 1) System.out.print((coefficient == 1 ? "" : coefficient)  + "x");
             else System.out.print((coefficient == 1 ? "" : coefficient) + "x" + "^" + power);
         }
+    }
+    public String printMonomial() {
+        String monomial = "";
+        return monomial.concat(this.sgn ? "+" : "-").concat(String.valueOf(this.coefficient)).concat(String.valueOf(this.arg)).concat(this.power > 1 ? "^"+this.power : "");
+
     }
 }
